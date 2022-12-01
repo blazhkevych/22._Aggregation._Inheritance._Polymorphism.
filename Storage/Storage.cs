@@ -3,6 +3,7 @@ using System.Reflection;
 
 namespace StorageNameSpace
 {
+    [Serializable]
     public abstract class Storage
     {
         // Имя производителя.

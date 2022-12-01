@@ -8,11 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BinarySerialize\BinarySerialize.csproj" />
     <ProjectReference Include="..\ConsoleLog\ConsoleLog.csproj" />
     <ProjectReference Include="..\FileLog\FileLog.csproj" />
     <ProjectReference Include="..\Flash\Flash.csproj" />
+    <ProjectReference Include="..\JSONSerialize\JSONSerialize.csproj" />
     <ProjectReference Include="..\PriceList\PriceList.csproj" />
     <ProjectReference Include="..\Storage\Storage.csproj" />
+    <ProjectReference Include="..\XMLSerialize\XMLSerialize.csproj" />
   </ItemGroup>
 
 </Project>

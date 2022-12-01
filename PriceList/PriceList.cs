@@ -49,28 +49,42 @@ namespace PriceListNameSpace
                     Console.WriteLine();
                 }
             }
-            else
-            {
-                // Выводим информацию в файл.
-                foreach (Storage storage in list)
-                {
-                    storage.ReportOutput(log);
-                }
-            }
         }
 
         // Метод сохранения списка носителей информации в файл.
         public void Save(ISerialize iSerialize)
         {
             // Смотрим что пришло в качестве параметра (BinarySerialize или JSONSerialize или XMLSerialize).
-
-
+            if (iSerialize.GetType().Name == "BinarySerialize")
+            {
+                iSerialize.Save(list);
+            }
+            else if (iSerialize.GetType().Name == "JSONSerialize")
+            {
+                iSerialize.Save(list);
+            }
+            else if (iSerialize.GetType().Name == "XMLSerialize")
+            {
+                iSerialize.Save(list);
+            }
         }
 
         // Метод загрузки списка носителей информации из файла.
-        private void Load(ISerialize iSerialize)
+        public void Load(ISerialize iSerialize)
         {
             // Смотрим что пришло в качестве параметра (BinarySerialize или JSONSerialize или XMLSerialize).
+            if (iSerialize.GetType().Name == "BinarySerialize")
+            {
+                list = iSerialize.Load();
+            }
+            else if (iSerialize.GetType().Name == "JSONSerialize")
+            {
+                list = iSerialize.Load();
+            }
+            else if (iSerialize.GetType().Name == "XMLSerialize")
+            {
+                list = iSerialize.Load();
+            }
         }
     }
 }

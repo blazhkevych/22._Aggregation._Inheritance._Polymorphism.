@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BinarySerializeNameSpace;
 using ConsoleLogNameSpace;
 using DVDNameSpace;
 using FileLogNameSpace;
@@ -10,9 +11,11 @@ using FlashNameSpace;
 using HDDNameSpace;
 using ILogNameSpace;
 using ISerializeNameSpace;
+using JSONSerializeNameSpace;
 using PriceListNameSpace;
 using SomeInfoGeneratorNameSpace;
 using StorageNameSpace;
+using XMLSerializeNameSpace;
 
 namespace InterfaceNameSpace
 {
@@ -341,14 +344,47 @@ namespace InterfaceNameSpace
                                     MainMenu();
                                     break;
                                 }
-                            case "2": // 2. Вывод списка носителей информации с помощью BinarySerialize в файл.
+                            case "2": // 2. Вывести список носителей информации в файл с помощью BinarySerialize.
                                 {
                                     Console.Clear();
                                     // Вывод списка носителей информации с помощью BinarySerialize в файл.
-                                    FileLog fileLog = new FileLog();
-                                    priceList.ReportOutput(fileLog);
+                                    BinarySerialize binarySerialize = new BinarySerialize();
+                                    priceList.Save(binarySerialize);
                                     Console.WriteLine("Нажмите любую клавишу для продолжения...");
                                     Console.ReadKey();
+                                    Console.Clear();
+                                    // Возврат в главное меню.
+                                    MainMenu();
+                                    break;
+                                }
+                            case "3": // 3. Вывести список носителей информации в файл с помощью JSONSerialize.
+                                {
+                                    Console.Clear();
+                                    // Вывод списка носителей информации с помощью JSONSerialize в файл.
+                                    JSONSerialize jsonSerialize = new JSONSerialize();
+                                    priceList.Save(jsonSerialize);
+                                    Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    // Возврат в главное меню.
+                                    MainMenu();
+                                    break;
+                                }
+                            case "4": // 4. Вывести список носителей информации в файл с помощью XMLSerialize.
+                                {
+                                    Console.Clear();
+                                    // Вывод списка носителей информации с помощью XMLSerialize в файл.
+                                    XMLSerialize xmlSerialize = new XMLSerialize();
+                                    priceList.Save(xmlSerialize);
+                                    Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    // Возврат в главное меню.
+                                    MainMenu();
+                                    break;
+                                }
+                            case "5": // Назад.
+                                {
                                     Console.Clear();
                                     // Возврат в главное меню.
                                     MainMenu();
@@ -402,9 +438,11 @@ namespace InterfaceNameSpace
         // Пункты меню добавления носителя информации.
         private static void Submenu_6_Item()
         {
-            Console.WriteLine("1. Вывести список носителей информации в консоль.");
-            Console.WriteLine("2. Вывести список носителей информации в файл.");
-            Console.WriteLine("3. Назад");
+            Console.WriteLine("1. Вывести список носителей информации в консоль");
+            Console.WriteLine("2. Вывести список носителей информации в файл с помощью BinarySerialize");
+            Console.WriteLine("3. Вывести список носителей информации в файл с помощью JSONSerialize");
+            Console.WriteLine("4. Вывести список носителей информации в файл с помощью XMLSerialize");
+            Console.WriteLine("5. Назад");
             Console.WriteLine("Введите номер пункта меню: ");
         }
 

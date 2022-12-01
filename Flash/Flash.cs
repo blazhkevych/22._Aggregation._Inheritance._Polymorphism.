@@ -3,6 +3,7 @@ using StorageNameSpace;
 
 namespace FlashNameSpace
 {
+    [Serializable]
     public class Flash : Storage
     {
         // Скорость USB.

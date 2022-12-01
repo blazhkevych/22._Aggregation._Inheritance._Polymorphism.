@@ -3,6 +3,7 @@ using StorageNameSpace;
 
 namespace HDDNameSpace
 {
+    [Serializable]
     public class HDD : Storage
     {
         // Скорость вращения шпинделя.

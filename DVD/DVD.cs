@@ -3,6 +3,7 @@ using StorageNameSpace;
 
 namespace DVDNameSpace
 {
+    [Serializable]
     public class DVD : Storage
     {
         // Скорость записи.
