@@ -8,10 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DVD\DVD.csproj" />
-    <ProjectReference Include="..\ILog\ILog.csproj" />
-    <ProjectReference Include="..\ISerialize\ISerialize.csproj" />
-    <ProjectReference Include="..\SomeInfoGenerator\SomeInfoGenerator.csproj" />
-    <ProjectReference Include="..\Storage\Storage.csproj" />
+    <ProjectReference Include="..\Flash\Flash.csproj" />
+    <ProjectReference Include="..\HDD\HDD.csproj" />
   </ItemGroup>
 
 </Project>

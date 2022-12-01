@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ILog\ILog.csproj" />
+    <ProjectReference Include="..\ISerialize\ISerialize.csproj" />
   </ItemGroup>
 
 </Project>

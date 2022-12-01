@@ -1,6 +1,9 @@
 ﻿using ILogNameSpace;
 using ISerializeNameSpace;
 using StorageNameSpace;
+using System.Text.RegularExpressions;
+using DVDNameSpace;
+using SomeInfoGeneratorNameSpace;
 
 namespace PriceListNameSpace
 {
@@ -24,13 +27,40 @@ namespace PriceListNameSpace
 
 
         // Вывод информации о списке носителей, взависимости от входящего параметра.
-        private void Print(ILog log)
+        public void ReportOutput(ILog log)
         {
+            // Проверка на пустоту списка.
+            if (list.Count == 0)
+            {
+                Console.WriteLine("Список пуст.");
+                return;
+            }
             // Смотрим что пришло в качестве параметра (ConsoleLog или FileLog).
+            if (log.GetType().Name == "ConsoleLog")
+            {
+                // Выводим в консоль информацию о носителях.
+                int i = 1;
+                foreach (Storage storage in list)
+                {
+                    Console.WriteLine("Носитель № " + i);
+                    i++;
+                    Console.WriteLine($"{storage.GetType().Name}");
+                    storage.ReportOutput(log);
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                // Выводим информацию в файл.
+                foreach (Storage storage in list)
+                {
+                    storage.ReportOutput(log);
+                }
+            }
         }
 
         // Метод сохранения списка носителей информации в файл.
-        private void Save(ISerialize iSerialize)
+        public void Save(ISerialize iSerialize)
         {
             // Смотрим что пришло в качестве параметра (BinarySerialize или JSONSerialize или XMLSerialize).
 

@@ -9,10 +9,10 @@ namespace DVDNameSpace
         public double WriteSpeed { get; set; }
 
         // Метод вывода в консоль информации о носителе.
-        public override void PrintReport(ILog log)
+        public override void ReportOutput(ILog log)
         {
-            base.PrintReport(log);
-            log.PrintReport("WriteSpeed: " + WriteSpeed);
+            base.ReportOutput(log);
+            log.ReportOutput("WriteSpeed: " + WriteSpeed);
         }
 
         // Конструктор.
@@ -20,6 +20,12 @@ namespace DVDNameSpace
             : base(manufacturer, model, capacity, quantity)
         {
             WriteSpeed = writeSpeed;
+        }
+
+        // Констор по умолчанию.
+        public DVD()
+        {
+            WriteSpeed = 0.0;
         }
     }
 }

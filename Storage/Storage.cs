@@ -1,4 +1,5 @@
 ﻿using ILogNameSpace;
+using System.Reflection;
 
 namespace StorageNameSpace
 {
@@ -17,12 +18,12 @@ namespace StorageNameSpace
         public int Quantity { get; set; }
 
         // Метод вывода в консоль информации о носителе.
-        public virtual void PrintReport(ILog log)
+        public virtual void ReportOutput(ILog log)
         {
-            log.PrintReport("Manufacturer: " + Manufacturer);
-            log.PrintReport("Model: " + Model);
-            log.PrintReport("Capacity: " + Capacity);
-            log.PrintReport("Quantity: " + Quantity);
+            log.ReportOutput("Manufacturer: " + Manufacturer);
+            log.ReportOutput("Model: " + Model);
+            log.ReportOutput("Capacity: " + Capacity);
+            log.ReportOutput("Quantity: " + Quantity);
         }
 
         // Конструктор.
@@ -32,6 +33,15 @@ namespace StorageNameSpace
             Model = model;
             Capacity = capacity;
             Quantity = quantity;
+        }
+
+        // Конструктор по умолчанию.
+        public Storage()
+        {
+            Manufacturer = "Unknown";
+            Model = "Unknown";
+            Capacity = 0.0;
+            Quantity = 0;
         }
     }
 }

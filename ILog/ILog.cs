@@ -2,7 +2,7 @@
 {
     public interface ILog
     {
-        // Метод вывода данных.
-        void PrintReport(string message);
+        // Метод вывода данных, по выбранному пользователем назначению.
+        void ReportOutput(String s);
     }
 }

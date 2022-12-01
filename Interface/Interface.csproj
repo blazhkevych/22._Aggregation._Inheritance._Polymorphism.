@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ConsoleLog\ConsoleLog.csproj" />
+    <ProjectReference Include="..\FileLog\FileLog.csproj" />
     <ProjectReference Include="..\Flash\Flash.csproj" />
+    <ProjectReference Include="..\PriceList\PriceList.csproj" />
     <ProjectReference Include="..\Storage\Storage.csproj" />
   </ItemGroup>
 

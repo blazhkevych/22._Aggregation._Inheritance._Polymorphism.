@@ -4,9 +4,8 @@ namespace FileLogNameSpace
 {
     public class FileLog : ILog
     {
-        // Метод вывода принятой строки в файл.
-
-        public void PrintReport(string message) // переопределить метод
+        // Метод вывода данных, по выбранному пользователем назначению (файл).
+        public void ReportOutput(string s) // переопределить метод
         {
             //throw new NotImplementedException();
         }

@@ -1,13 +1,12 @@
-﻿using ILogNameSpace;
+﻿using System.Data.SqlTypes;
+using ILogNameSpace;
+using StorageNameSpace;
 
 namespace ConsoleLogNameSpace
 {
     public class ConsoleLog : ILog
     {
-        // Метод вывода принятой строки в консоль.
-        public void PrintReport(string message) // переопределить метод
-        {
-            //throw new NotImplementedException();
-        }
+        // Метод вывода данных, по выбранному пользователем назначению (консоль).
+        public void ReportOutput(String s) => Console.WriteLine(s);
     }
 }

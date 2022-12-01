@@ -9,10 +9,10 @@ namespace FlashNameSpace
         public double Speed { get; set; }
 
         // Метод вывода в консоль информации о носителе.
-        public override void PrintReport(ILog log)
+        public override void ReportOutput(ILog log)
         {
-            base.PrintReport(log);
-            log.PrintReport("Speed: " + Speed);
+            base.ReportOutput(log);
+            log.ReportOutput("Speed: " + Speed);
         }
 
         // Конструктор.
@@ -20,6 +20,12 @@ namespace FlashNameSpace
             : base(manufacturer, model, capacity, quantity)
         {
             Speed = speed;
+        }
+
+        // Констор по умолчанию.
+        public Flash()
+        {
+            Speed = 0.0;
         }
     }
 }

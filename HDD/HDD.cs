@@ -9,10 +9,10 @@ namespace HDDNameSpace
         public double SpindleSpeed { get; set; }
 
         // Метод вывода в консоль информации о носителе.
-        public override void PrintReport(ILog log)
+        public override void ReportOutput(ILog log)
         {
-            base.PrintReport(log);
-            log.PrintReport("SpindleSpeed: " + SpindleSpeed);
+            base.ReportOutput(log);
+            log.ReportOutput("SpindleSpeed: " + SpindleSpeed);
         }
 
         // Конструктор.
@@ -20,6 +20,12 @@ namespace HDDNameSpace
             : base(manufacturer, model, capacity, quantity)
         {
             SpindleSpeed = spindleSpeed;
+        }
+
+        // Констор по умолчанию.
+        public HDD()
+        {
+            SpindleSpeed = 0.0;
         }
     }
 }

@@ -5,29 +5,31 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Interface.csproj", "{1582976E-CC6A-4A46-B474-10BF15E7E237}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySerialize", "BinarySerialize\BinarySerialize.csproj", "{A52B3C8B-825E-43C0-917E-7DE8011F14B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySerialize", "BinarySerialize\BinarySerialize.csproj", "{A52B3C8B-825E-43C0-917E-7DE8011F14B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLog", "ConsoleLog\ConsoleLog.csproj", "{1EA83DAB-80F7-4C77-910F-475422661886}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleLog", "ConsoleLog\ConsoleLog.csproj", "{1EA83DAB-80F7-4C77-910F-475422661886}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVD", "DVD\DVD.csproj", "{39D2AF57-F753-4004-B172-9308CD3139D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DVD", "DVD\DVD.csproj", "{39D2AF57-F753-4004-B172-9308CD3139D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flash", "Flash\Flash.csproj", "{2A35CE06-3012-464D-B075-461D3F077C0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flash", "Flash\Flash.csproj", "{2A35CE06-3012-464D-B075-461D3F077C0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDD", "HDD\HDD.csproj", "{BBCDC891-57DB-4CB2-B814-CE085CA87001}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HDD", "HDD\HDD.csproj", "{BBCDC891-57DB-4CB2-B814-CE085CA87001}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileLog", "FileLog\FileLog.csproj", "{690CB77C-C613-40B1-9456-5C0A4CBBE87E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileLog", "FileLog\FileLog.csproj", "{690CB77C-C613-40B1-9456-5C0A4CBBE87E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILog", "ILog\ILog.csproj", "{B2E99A2C-592E-4187-85A8-F8742113813B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ILog", "ILog\ILog.csproj", "{B2E99A2C-592E-4187-85A8-F8742113813B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISerialize", "ISerialize\ISerialize.csproj", "{95DB0F6F-ACFE-414E-A8D8-3CC32617FEA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ISerialize", "ISerialize\ISerialize.csproj", "{95DB0F6F-ACFE-414E-A8D8-3CC32617FEA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONSerialize", "JSONSerialize\JSONSerialize.csproj", "{10678E17-A11C-4771-A7F1-A25A2CC154FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSONSerialize", "JSONSerialize\JSONSerialize.csproj", "{10678E17-A11C-4771-A7F1-A25A2CC154FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceList", "PriceList\PriceList.csproj", "{D24FEEAB-404B-4267-A4D8-9E1ACE314291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceList", "PriceList\PriceList.csproj", "{D24FEEAB-404B-4267-A4D8-9E1ACE314291}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage", "Storage\Storage.csproj", "{A3FDF839-8B23-4DFC-B49C-C2AD58301B38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storage", "Storage\Storage.csproj", "{A3FDF839-8B23-4DFC-B49C-C2AD58301B38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLSerialize", "XMLSerialize\XMLSerialize.csproj", "{24546406-DA1C-4543-AFE1-10C0C0694EC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XMLSerialize", "XMLSerialize\XMLSerialize.csproj", "{24546406-DA1C-4543-AFE1-10C0C0694EC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SomeInfoGenerator", "SomeInfoGenerator\SomeInfoGenerator.csproj", "{49558F72-C3F5-4F20-A9E9-4907FB364616}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{24546406-DA1C-4543-AFE1-10C0C0694EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24546406-DA1C-4543-AFE1-10C0C0694EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24546406-DA1C-4543-AFE1-10C0C0694EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49558F72-C3F5-4F20-A9E9-4907FB364616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49558F72-C3F5-4F20-A9E9-4907FB364616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49558F72-C3F5-4F20-A9E9-4907FB364616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49558F72-C3F5-4F20-A9E9-4907FB364616}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
