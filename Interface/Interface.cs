@@ -125,9 +125,8 @@ namespace InterfaceNameSpace
             Console.Clear();
             // Пункты главного меню.
             MainMenuItems();
-            string answer;
-            answer = Console.ReadLine();
-            switch (answer)
+            var answerMainMenu = Console.ReadLine();
+            switch (answerMainMenu)
             {
                 case "1": // 1. Добавить носитель информации.
                     {
@@ -135,9 +134,8 @@ namespace InterfaceNameSpace
                         // Пункты меню добавления носителя информации.
                         Submenu_1_Item();
                         // Переменная для хранения выбранного пункта меню в подменю.
-                        string answer2;
-                        answer2 = Console.ReadLine();
-                        switch (answer2)
+                        var answerSubmenu1Item = Console.ReadLine();
+                        switch (answerSubmenu1Item)
                         {
                             case "1": // 1. Flash - память.
                                 {
@@ -288,7 +286,44 @@ namespace InterfaceNameSpace
                 case "2": // 2. Удалить носитель информации.
                     {
                         Console.Clear();
-
+                        // Проверка на пустоту списка.
+                        if (priceList.Count == 0)
+                        {
+                            Console.WriteLine("Список пуст.");
+                            Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                            Console.ReadKey();
+                            Console.Clear();
+                            // Возврат в главное меню.
+                            MainMenu();
+                        }
+                        // Вывод списка носителей информации в консоль.
+                        ConsoleLog consoleLog = new ConsoleLog();
+                        priceList.ReportOutput(consoleLog);
+                        // Ввод номера носителя информации для удаления.
+                        Console.WriteLine("Введите номер носителя информации для удаления: ");
+                        int index = default;
+                        try
+                        {
+                            index = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                            Console.WriteLine("Упс! Что-то пошло не так. Попробуйте еще раз.");
+                            Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                            Console.ReadKey();
+                            Console.Clear();
+                            MainMenu();
+                        }
+                        // Удаление носителя информации из списка.
+                        priceList.Remove(index);
+                        // Вывод сообщения об успешном удалении.
+                        Console.WriteLine("Носитель информации успешно удален.");
+                        Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        // Возврат в главное меню.
+                        MainMenu();
                         break;
                     }
                 case "3": // 3. Редактировать носитель информации.
@@ -306,6 +341,23 @@ namespace InterfaceNameSpace
                 case "5": // 5. Поиск носителей информации.
                     {
                         Console.Clear();
+                        // Проверка на пустоту списка.
+                        if (priceList.Count == 0)
+                        {
+                            Console.WriteLine("Список пуст.");
+                            Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                            Console.ReadKey();
+                            Console.Clear();
+                            // Возврат в главное меню.
+                            MainMenu();
+                        }
+                        // Поиск носителей информации по всем полям в зависимости от типа носителя.
+                        Console.WriteLine("Введите данные для поиска: ");
+                        string search = Console.ReadLine();
+                        // Поиск носителей информации по всем полям в зависимости от типа носителя.
+                        priceList.Search(search);
+                        
+
 
                         break;
                     }
@@ -315,10 +367,10 @@ namespace InterfaceNameSpace
                         // Пункты меню добавления носителя информации.
                         Submenu_6_Item();
                         // Переменная для хранения выбранного пункта меню в подменю.
-                        string answer3 = default;
+                        string answerSubmenu6Item = default;
                         try
                         {
-                            answer3 = Console.ReadLine();
+                            answerSubmenu6Item = Console.ReadLine();
                         }
                         catch (Exception e)
                         {
@@ -329,7 +381,7 @@ namespace InterfaceNameSpace
                             Console.Clear();
                             MainMenu();
                         }
-                        switch (answer3)
+                        switch (answerSubmenu6Item)
                         {
                             case "1": // 1. Вывод списка носителей информации в консоль.
                                 {
@@ -392,7 +444,6 @@ namespace InterfaceNameSpace
                                 }
                         }
                         break;
-
                     }
                 case "7": // 7. Сгенерировать носителей информации.
                     {
@@ -435,7 +486,7 @@ namespace InterfaceNameSpace
             Console.WriteLine("Введите номер пункта меню: ");
         }
 
-        // Пункты меню добавления носителя информации.
+        // Пункты меню вывода носителя информации по выбранному назначению.
         private static void Submenu_6_Item()
         {
             Console.WriteLine("1. Вывести список носителей информации в консоль");
