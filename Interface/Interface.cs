@@ -124,7 +124,15 @@ namespace InterfaceNameSpace
         {
             Console.Clear();
             // Пункты главного меню.
-            MainMenuItems();
+            Console.WriteLine("1. Добавить носитель информации...");
+            Console.WriteLine("2. Удалить носитель информации");
+            Console.WriteLine("3. Редактировать носитель информации");
+            Console.WriteLine("4. Загрузить список носителей информации");
+            Console.WriteLine("5. Поиск носителей информации");
+            Console.WriteLine("6. Вывод списка носителей информации...");
+            Console.WriteLine("7. Сгенерировать носителей информации");
+            Console.WriteLine("8. Выход");
+            Console.WriteLine("Выберите пункт меню:");
             var answerMainMenu = Console.ReadLine();
             switch (answerMainMenu)
             {
@@ -132,7 +140,11 @@ namespace InterfaceNameSpace
                     {
                         Console.Clear();
                         // Пункты меню добавления носителя информации.
-                        Submenu_1_Item();
+                        Console.WriteLine("1. Flash - память");
+                        Console.WriteLine("2. HDD - жесткий диск");
+                        Console.WriteLine("3. DVD - диск");
+                        Console.WriteLine("4. Назад");
+                        Console.WriteLine("Введите номер пункта меню: ");
                         // Переменная для хранения выбранного пункта меню в подменю.
                         var answerSubmenu1Item = Console.ReadLine();
                         switch (answerSubmenu1Item)
@@ -280,6 +292,17 @@ namespace InterfaceNameSpace
                                     MainMenu();
                                     break;
                                 }
+                            default: // В случае некорректного ввода.
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Некорректный ввод. Попробуйте еще раз.");
+                                    Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    // Возврат в главное меню.
+                                    MainMenu();
+                                    break;
+                                }
                         }
                         break;
                     }
@@ -329,13 +352,179 @@ namespace InterfaceNameSpace
                 case "3": // 3. Редактировать носитель информации.
                     {
                         Console.Clear();
+                        // Проверка на пустоту списка.
+                        if (priceList.Count == 0)
+                        {
+                            Console.WriteLine("Список пуст.");
+                            Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                            Console.ReadKey();
+                            Console.Clear();
+                            // Возврат в главное меню.
+                            MainMenu();
+                        }
+                        // Вывод списка носителей информации в консоль.
+                        ConsoleLog consoleLog = new ConsoleLog();
+                        priceList.ReportOutput(consoleLog);
+                        // Ввод номера носителя информации для редактирования.
+                        Console.WriteLine("Введите номер носителя информации для редактирования: ");
+                        int index = default;
+                        try
+                        {
+                            index = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                            Console.WriteLine("Упс! Что-то пошло не так. Попробуйте еще раз.");
+                            Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                            Console.ReadKey();
+                            Console.Clear();
+                            MainMenu();
+                        }
+                        // Ввод новых данных носителя информации в зависимости от выбранного типа носителя.
+                        switch (priceList[index].GetType().Name)
+                        {
+                            case "DVD":
+                                {
+                                    Console.WriteLine("Введите название носителя информации: ");
+                                    string name = Console.ReadLine();
+                                    Console.WriteLine("Введите цену носителя информации: ");
+                                    double price = default;
+                                    try
+                                    {
+                                        price = Convert.ToDouble(Console.ReadLine());
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        Console.WriteLine(e.Message);
+                                        Console.WriteLine("Упс! Что-то пошло не так. Попробуйте еще раз.");
+                                        Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                        Console.ReadKey();
+                                        Console.Clear();
+                                        MainMenu();
+                                    }
+                                    Console.WriteLine("Введите количество носителей информации: ");
+                                    int count = default;
+                                    try
+                                    {
+                                        count = Convert.ToInt32(Console.ReadLine());
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        Console.WriteLine(e.Message);
+                                        Console.WriteLine("Упс! Что-то пошло не так. Попробуйте еще раз.");
+                                        Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                        Console.ReadKey();
+                                        Console.Clear();
+                                        MainMenu();
+                                    }
+                                    Console.WriteLine("Введите название фильма: ");
+                                    string filmName = Console.ReadLine();
+                                    Console.WriteLine("Введите продолжительность фильма: ");
+                                    int filmDuration = default;
+                                    try
+                                    {
+                                        filmDuration = Convert.ToInt32(Console.ReadLine());
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        Console.WriteLine(e.Message);
+                                        Console.WriteLine("Упс! Что-то пошло не так. Попробуйте еще раз.");
+                                        Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                        Console.ReadKey();
+                                        Console.Clear();
+                                        MainMenu();
+                                    }
+                                    Console.WriteLine("Введите жанр фильма: ");
+                                    string filmGenre = Console.ReadLine();
+                                    // Создание нового объекта DVD.
+                                    DVD dvd = new DVD(name, price, count, filmName, filmDuration, filmGenre);
+                                    // Редактирование носителя информации в списке.
+                                    priceList.Edit(index, dvd);
+                                    // Вывод сообщения об успешном редактировании
 
-                        break;
+                                    break;
                     }
                 case "4": // 4. Загрузить список носителей информации.
                     {
                         Console.Clear();
-
+                        // Проверка на пустоту списка.
+                        if (priceList.Count != 0)
+                        {
+                            Console.WriteLine("Список носителей информации не пуст.");
+                            Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                            Console.ReadKey();
+                            Console.Clear();
+                            // Возврат в главное меню.
+                            MainMenu();
+                        }
+                        // Какого типа сериализации файла использовать (BinarySerialize, JSONSerialize, XMLSerialize).
+                        Console.WriteLine("Выберите тип сериализации файла для загрузки:");
+                        Console.WriteLine("1. BinarySerialize.");
+                        Console.WriteLine("2. JSONSerialize.");
+                        Console.WriteLine("3. XMLSerialize.");
+                        Console.WriteLine("4. Назад.");
+                        string serializeType = Console.ReadLine();
+                        switch (serializeType)
+                        {
+                            case "1": // 1. BinarySerialize.
+                                {
+                                    Console.Clear();
+                                    priceList.Load(new BinarySerialize());
+                                    // Вывод сообщения об успешной загрузке.
+                                    Console.WriteLine("Список носителей информации успешно загружен.");
+                                    Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    // Возврат в главное меню.
+                                    MainMenu();
+                                    break;
+                                }
+                            case "2": // 2. JSONSerialize.
+                                {
+                                    Console.Clear();
+                                    priceList.Load(new JSONSerialize());
+                                    // Вывод сообщения об успешной загрузке.
+                                    Console.WriteLine("Список носителей информации успешно загружен.");
+                                    Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    // Возврат в главное меню.
+                                    MainMenu();
+                                    break;
+                                }
+                            case "3": // 3. XMLSerialize.
+                                {
+                                    Console.Clear();
+                                    priceList.Load(new XMLSerialize());
+                                    // Вывод сообщения об успешной загрузке.
+                                    Console.WriteLine("Список носителей информации успешно загружен.");
+                                    Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    // Возврат в главное меню.
+                                    MainMenu();
+                                    break;
+                                }
+                            case "4": // 4. Назад.
+                                {
+                                    Console.Clear();
+                                    // Возврат в главное меню.
+                                    MainMenu();
+                                    break;
+                                }
+                            default:
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Неверный ввод.");
+                                    Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    // Возврат в главное меню.
+                                    MainMenu();
+                                    break;
+                                }
+                        }
                         break;
                     }
                 case "5": // 5. Поиск носителей информации.
@@ -356,16 +545,23 @@ namespace InterfaceNameSpace
                         string search = Console.ReadLine();
                         // Поиск носителей информации по всем полям в зависимости от типа носителя.
                         priceList.Search(search);
-                        
-
-
+                        Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        // Возврат в главное меню.
+                        MainMenu();
                         break;
                     }
                 case "6": // 6. Вывод списка носителей информации...
                     {
                         Console.Clear();
                         // Пункты меню добавления носителя информации.
-                        Submenu_6_Item();
+                        Console.WriteLine("1. Вывести список носителей информации в консоль");
+                        Console.WriteLine("2. Вывести список носителей информации в файл с помощью BinarySerialize");
+                        Console.WriteLine("3. Вывести список носителей информации в файл с помощью JSONSerialize");
+                        Console.WriteLine("4. Вывести список носителей информации в файл с помощью XMLSerialize");
+                        Console.WriteLine("5. Назад");
+                        Console.WriteLine("Введите номер пункта меню: ");
                         // Переменная для хранения выбранного пункта меню в подменю.
                         string answerSubmenu6Item = default;
                         try
@@ -442,6 +638,17 @@ namespace InterfaceNameSpace
                                     MainMenu();
                                     break;
                                 }
+                            default:
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Неверный ввод. Попробуйте еще раз.");
+                                    Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    // Возврат в главное меню.
+                                    MainMenu();
+                                    break;
+                                }
                         }
                         break;
                     }
@@ -469,46 +676,14 @@ namespace InterfaceNameSpace
                 default:
                     {
                         Console.Clear();
-                        Console.WriteLine("Неверный пункт меню");
+                        Console.WriteLine("Неверный ввод. Попробуйте еще раз.");
+                        Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                        Console.ReadKey();
+                        Console.Clear();
                         MainMenu();
                         break;
                     }
             }
-        }
-
-        // Подменю пункта №1 главного меню. Пункты меню добавления носителя информации.
-        private static void Submenu_1_Item()
-        {
-            Console.WriteLine("1. Flash - память");
-            Console.WriteLine("2. HDD - жесткий диск");
-            Console.WriteLine("3. DVD - диск");
-            Console.WriteLine("4. Назад");
-            Console.WriteLine("Введите номер пункта меню: ");
-        }
-
-        // Пункты меню вывода носителя информации по выбранному назначению.
-        private static void Submenu_6_Item()
-        {
-            Console.WriteLine("1. Вывести список носителей информации в консоль");
-            Console.WriteLine("2. Вывести список носителей информации в файл с помощью BinarySerialize");
-            Console.WriteLine("3. Вывести список носителей информации в файл с помощью JSONSerialize");
-            Console.WriteLine("4. Вывести список носителей информации в файл с помощью XMLSerialize");
-            Console.WriteLine("5. Назад");
-            Console.WriteLine("Введите номер пункта меню: ");
-        }
-
-        // Пункты главного меню.
-        private static void MainMenuItems()
-        {
-            Console.WriteLine("1. Добавить носитель информации...");
-            Console.WriteLine("2. Удалить носитель информации");
-            Console.WriteLine("3. Редактировать носитель информации");
-            Console.WriteLine("4. Загрузить список носителей информации");
-            Console.WriteLine("5. Поиск носителей информации");
-            Console.WriteLine("6. Вывод списка носителей информации...");
-            Console.WriteLine("7. Сгенерировать носителей информации");
-            Console.WriteLine("8. Выход");
-            Console.WriteLine("Выберите пункт меню:");
         }
     }
 }

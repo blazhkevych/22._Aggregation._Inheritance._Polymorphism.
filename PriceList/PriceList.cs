@@ -36,7 +36,72 @@ namespace PriceListNameSpace
             }
         }
 
-        // Изменение определённых параметров носителя информации.
+        // Изменение параметров носителя по выбранному индексу в зависимости от типа носителя.
+        public void Change(int index)
+        {
+            // Проверка на выход за границы списка.
+            if (index > list.Count || index < 1)
+            {
+                Console.WriteLine("Неверный индекс!");
+                return;
+            }
+            // Редактирование данных носителя информации в зависимости от выбранного типа носителя.
+            switch (list.ElementAt(index - 1).GetType().Name)
+            {
+                case "DVD":
+                    // Редактирование данных DVD.
+                    Console.WriteLine("Введите новое имя производителя: ");
+                    list.ElementAt(index - 1).Manufacturer = Console.ReadLine();
+                    Console.WriteLine("Введите новую модель: ");
+                    list.ElementAt(index - 1).Model = Console.ReadLine();
+                    try
+                    {
+                        Console.WriteLine("Введите новую ёмкость носителя: ");
+                        list.ElementAt(index - 1).Capacity = Convert.ToDouble(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine("Неверный формат данных!");
+                        // Установить значение по умолчанию для этого поля.
+                        list.ElementAt(index - 1).Capacity = default;
+                    }
+
+                    try
+                    {
+                        Console.WriteLine("Введите новое количество носителей: ");
+                        list.ElementAt(index - 1).Quantity = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        Console.WriteLine("Неверный формат данных!");
+                        // Установить значение по умолчанию для этого поля.
+                        list.ElementAt(index - 1).Quantity = default;
+                    }
+
+                    try
+                    {
+                        Console.WriteLine("Введите новую скорость чтения/записи: ");
+                        (list.ElementAt(index - 1) as DVD).WriteSpeed = Convert.ToDouble(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        Console.WriteLine("Неверный формат данных!");
+                        // Установить значение по умолчанию для этого поля.
+                        (list.ElementAt(index - 1) as DVD).WriteSpeed = default;
+                    }
+                    break;
+
+                    // todo: продолжить для остальных ...
+
+
+            }
+
+
+        }
+
 
 
         // Поиск носителя информации по заданному критерию и вывод его на экран.
@@ -144,6 +209,19 @@ namespace PriceListNameSpace
             else if (iSerialize.GetType().Name == "XMLSerialize")
             {
                 list = iSerialize.Load();
+            }
+        }
+
+        // Индексатор
+        public object this[int index]
+        {
+            get
+            {
+                return list[index];
+            }
+            set
+            {
+                list[index] = (Storage)value;
             }
         }
     }
