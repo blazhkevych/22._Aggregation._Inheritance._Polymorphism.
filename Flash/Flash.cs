@@ -1,12 +1,16 @@
 ﻿using ILogNameSpace;
 using StorageNameSpace;
+using System.Runtime.Serialization;
 
 namespace FlashNameSpace
 {
     [Serializable]
+    [DataContract(Name = "Flash", Namespace = "FlashNameSpace")]
+    [KnownType(typeof(Storage))]
     public class Flash : Storage
     {
         // Скорость USB.
+        [DataMember]
         public double Speed { get; set; }
 
         // Метод вывода в консоль информации о носителе.

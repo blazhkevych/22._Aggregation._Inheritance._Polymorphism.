@@ -37,7 +37,7 @@ namespace PriceListNameSpace
         }
 
         // Изменение параметров носителя по выбранному индексу в зависимости от типа носителя.
-        public void Change(int index)
+        public void Edit(int index)
         {
             // Проверка на выход за границы списка.
             if (index > list.Count || index < 1)
@@ -66,7 +66,6 @@ namespace PriceListNameSpace
                         // Установить значение по умолчанию для этого поля.
                         list.ElementAt(index - 1).Capacity = default;
                     }
-
                     try
                     {
                         Console.WriteLine("Введите новое количество носителей: ");
@@ -79,7 +78,6 @@ namespace PriceListNameSpace
                         // Установить значение по умолчанию для этого поля.
                         list.ElementAt(index - 1).Quantity = default;
                     }
-
                     try
                     {
                         Console.WriteLine("Введите новую скорость чтения/записи: ");
@@ -93,16 +91,94 @@ namespace PriceListNameSpace
                         (list.ElementAt(index - 1) as DVD).WriteSpeed = default;
                     }
                     break;
-
-                    // todo: продолжить для остальных ...
-
-
+                case "HDD":
+                    // Редактирование данных HDD.
+                    Console.WriteLine("Введите новое имя производителя: ");
+                    list.ElementAt(index - 1).Manufacturer = Console.ReadLine();
+                    Console.WriteLine("Введите новую модель: ");
+                    list.ElementAt(index - 1).Model = Console.ReadLine();
+                    try
+                    {
+                        Console.WriteLine("Введите новую ёмкость носителя: ");
+                        list.ElementAt(index - 1).Capacity = Convert.ToDouble(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine("Неверный формат данных!");
+                        // Установить значение по умолчанию для этого поля.
+                        list.ElementAt(index - 1).Capacity = default;
+                    }
+                    try
+                    {
+                        Console.WriteLine("Введите новое количество носителей: ");
+                        list.ElementAt(index - 1).Quantity = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        Console.WriteLine("Неверный формат данных!");
+                        // Установить значение по умолчанию для этого поля.
+                        list.ElementAt(index - 1).Quantity = default;
+                    }
+                    try
+                    {
+                        Console.WriteLine("Введите новую скорость чтения/записи: ");
+                        (list.ElementAt(index - 1) as HDD).SpindleSpeed = Convert.ToDouble(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        Console.WriteLine("Неверный формат данных!");
+                        // Установить значение по умолчанию для этого поля.
+                        (list.ElementAt(index - 1) as HDD).SpindleSpeed = default;
+                    }
+                    break;
+                case "Flash":
+                    // Редактирование данных HDD.
+                    Console.WriteLine("Введите новое имя производителя: ");
+                    list.ElementAt(index - 1).Manufacturer = Console.ReadLine();
+                    Console.WriteLine("Введите новую модель: ");
+                    list.ElementAt(index - 1).Model = Console.ReadLine();
+                    try
+                    {
+                        Console.WriteLine("Введите новую ёмкость носителя: ");
+                        list.ElementAt(index - 1).Capacity = Convert.ToDouble(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine("Неверный формат данных!");
+                        // Установить значение по умолчанию для этого поля.
+                        list.ElementAt(index - 1).Capacity = default;
+                    }
+                    try
+                    {
+                        Console.WriteLine("Введите новое количество носителей: ");
+                        list.ElementAt(index - 1).Quantity = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        Console.WriteLine("Неверный формат данных!");
+                        // Установить значение по умолчанию для этого поля.
+                        list.ElementAt(index - 1).Quantity = default;
+                    }
+                    try
+                    {
+                        Console.WriteLine("Введите новую скорость чтения/записи: ");
+                        (list.ElementAt(index - 1) as Flash).Speed = Convert.ToDouble(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        Console.WriteLine("Неверный формат данных!");
+                        // Установить значение по умолчанию для этого поля.
+                        (list.ElementAt(index - 1) as Flash).Speed = default;
+                    }
+                    break;
             }
-
-
         }
-
-
 
         // Поиск носителя информации по заданному критерию и вывод его на экран.
         public void Search(string search)

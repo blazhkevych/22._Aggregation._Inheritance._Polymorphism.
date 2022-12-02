@@ -76,15 +76,11 @@ namespace InterfaceNameSpace
     {
         // Поля.
         private PriceList priceList;
-        //private ILog log;
-        //private ISerialize serialize;
 
         // Конструктор.
-        public Interface()
+        public Interface(ref PriceList priceList)
         {
-            priceList = new PriceList();
-            //log = null;
-            //serialize = null;
+            this.priceList = priceList;
         }
 
         // Метод генерации носителей информации в список.
@@ -381,69 +377,15 @@ namespace InterfaceNameSpace
                             Console.Clear();
                             MainMenu();
                         }
-                        // Ввод новых данных носителя информации в зависимости от выбранного типа носителя.
-                        switch (priceList[index].GetType().Name)
-                        {
-                            case "DVD":
-                                {
-                                    Console.WriteLine("Введите название носителя информации: ");
-                                    string name = Console.ReadLine();
-                                    Console.WriteLine("Введите цену носителя информации: ");
-                                    double price = default;
-                                    try
-                                    {
-                                        price = Convert.ToDouble(Console.ReadLine());
-                                    }
-                                    catch (Exception e)
-                                    {
-                                        Console.WriteLine(e.Message);
-                                        Console.WriteLine("Упс! Что-то пошло не так. Попробуйте еще раз.");
-                                        Console.WriteLine("Нажмите любую клавишу для продолжения...");
-                                        Console.ReadKey();
-                                        Console.Clear();
-                                        MainMenu();
-                                    }
-                                    Console.WriteLine("Введите количество носителей информации: ");
-                                    int count = default;
-                                    try
-                                    {
-                                        count = Convert.ToInt32(Console.ReadLine());
-                                    }
-                                    catch (Exception e)
-                                    {
-                                        Console.WriteLine(e.Message);
-                                        Console.WriteLine("Упс! Что-то пошло не так. Попробуйте еще раз.");
-                                        Console.WriteLine("Нажмите любую клавишу для продолжения...");
-                                        Console.ReadKey();
-                                        Console.Clear();
-                                        MainMenu();
-                                    }
-                                    Console.WriteLine("Введите название фильма: ");
-                                    string filmName = Console.ReadLine();
-                                    Console.WriteLine("Введите продолжительность фильма: ");
-                                    int filmDuration = default;
-                                    try
-                                    {
-                                        filmDuration = Convert.ToInt32(Console.ReadLine());
-                                    }
-                                    catch (Exception e)
-                                    {
-                                        Console.WriteLine(e.Message);
-                                        Console.WriteLine("Упс! Что-то пошло не так. Попробуйте еще раз.");
-                                        Console.WriteLine("Нажмите любую клавишу для продолжения...");
-                                        Console.ReadKey();
-                                        Console.Clear();
-                                        MainMenu();
-                                    }
-                                    Console.WriteLine("Введите жанр фильма: ");
-                                    string filmGenre = Console.ReadLine();
-                                    // Создание нового объекта DVD.
-                                    DVD dvd = new DVD(name, price, count, filmName, filmDuration, filmGenre);
-                                    // Редактирование носителя информации в списке.
-                                    priceList.Edit(index, dvd);
-                                    // Вывод сообщения об успешном редактировании
-
-                                    break;
+                        priceList.Edit(index);
+                        // Вывод сообщения об успешном редактировании.
+                        Console.WriteLine("Носитель информации успешно отредактирован.");
+                        Console.WriteLine("Нажмите любую клавишу для продолжения...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        // Возврат в главное меню.
+                        MainMenu();
+                        break;
                     }
                 case "4": // 4. Загрузить список носителей информации.
                     {

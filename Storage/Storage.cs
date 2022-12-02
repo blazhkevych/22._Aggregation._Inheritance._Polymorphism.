@@ -1,21 +1,28 @@
 ﻿using ILogNameSpace;
 using System.Reflection;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace StorageNameSpace
 {
     [Serializable]
+    [DataContract(Name = "Storage", Namespace = "StorageNameSpace")]
     public abstract class Storage
     {
         // Имя производителя.
+        [DataMember]
         public string Manufacturer { get; set; }
 
         // Модель.
+        [DataMember]
         public string Model { get; set; }
 
         // Ёмкость носителя.
+        [DataMember]
         public double Capacity { get; set; }
 
         // Количество.
+        [DataMember]
         public int Quantity { get; set; }
 
         // Метод вывода в консоль информации о носителе.

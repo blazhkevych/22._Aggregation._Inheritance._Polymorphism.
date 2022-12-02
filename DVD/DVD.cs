@@ -1,12 +1,17 @@
 ﻿using ILogNameSpace;
+using Microsoft.VisualBasic;
 using StorageNameSpace;
+using System.Runtime.Serialization;
 
 namespace DVDNameSpace
 {
     [Serializable]
+    [DataContract]
+    [KnownType(typeof(Storage))]
     public class DVD : Storage
     {
         // Скорость записи.
+        [DataMember]
         public double WriteSpeed { get; set; }
 
         // Метод вывода в консоль информации о носителе.

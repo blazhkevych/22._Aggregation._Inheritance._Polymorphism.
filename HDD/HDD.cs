@@ -1,12 +1,16 @@
 ﻿using ILogNameSpace;
 using StorageNameSpace;
+using System.Runtime.Serialization;
 
 namespace HDDNameSpace
 {
     [Serializable]
+    [DataContract(Name = "HDD", Namespace = "HDDNameSpace")]
+    [KnownType(typeof(Storage))]
     public class HDD : Storage
     {
         // Скорость вращения шпинделя.
+        [DataMember]
         public double SpindleSpeed { get; set; }
 
         // Метод вывода в консоль информации о носителе.
