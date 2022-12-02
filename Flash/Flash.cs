@@ -5,8 +5,7 @@ using System.Runtime.Serialization;
 namespace FlashNameSpace
 {
     [Serializable]
-    [DataContract(Name = "Flash", Namespace = "FlashNameSpace")]
-    [KnownType(typeof(Storage))]
+    [DataContract(Name = "Flash")]
     public class Flash : Storage
     {
         // Скорость USB.

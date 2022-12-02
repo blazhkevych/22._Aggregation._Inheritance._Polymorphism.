@@ -6,8 +6,7 @@ using System.Runtime.Serialization;
 namespace DVDNameSpace
 {
     [Serializable]
-    [DataContract]
-    [KnownType(typeof(Storage))]
+    [DataContract(Name = "DVD")]
     public class DVD : Storage
     {
         // Скорость записи.

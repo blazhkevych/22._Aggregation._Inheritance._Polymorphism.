@@ -6,7 +6,9 @@ using System.Xml.Serialization;
 namespace StorageNameSpace
 {
     [Serializable]
-    [DataContract(Name = "Storage", Namespace = "StorageNameSpace")]
+    [DataContract(Name = "Storage")]
+    [KnownType(typeof(Storage))]
+
     public abstract class Storage
     {
         // Имя производителя.

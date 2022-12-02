@@ -5,8 +5,7 @@ using System.Runtime.Serialization;
 namespace HDDNameSpace
 {
     [Serializable]
-    [DataContract(Name = "HDD", Namespace = "HDDNameSpace")]
-    [KnownType(typeof(Storage))]
+    [DataContract(Name = "HDD")]
     public class HDD : Storage
     {
         // Скорость вращения шпинделя.

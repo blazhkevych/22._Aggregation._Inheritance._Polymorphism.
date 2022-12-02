@@ -14,6 +14,12 @@ namespace PriceListNameSpace
     {
         List<Storage> list = new List<Storage>();
 
+        // Как вариант можно хранить в этом классе абстракции:
+        // ILog log;
+        // ISerialize serialize;
+        // Для этого нужно будет еще добавить два метода (SetSerialize и SetLog) для их инициализации извне и
+        // работать через эти бастракции в методах класса.
+
         // Количество элементов в коллекции.
         public int Count => list.Count;
 
@@ -255,50 +261,52 @@ namespace PriceListNameSpace
         // Метод сохранения списка носителей информации в файл.
         public void Save(ISerialize iSerialize)
         {
+            iSerialize.Save(list);
             // Смотрим что пришло в качестве параметра (BinarySerialize или JSONSerialize или XMLSerialize).
-            if (iSerialize.GetType().Name == "BinarySerialize")
-            {
-                iSerialize.Save(list);
-            }
-            else if (iSerialize.GetType().Name == "JSONSerialize")
-            {
-                iSerialize.Save(list);
-            }
-            else if (iSerialize.GetType().Name == "XMLSerialize")
-            {
-                iSerialize.Save(list);
-            }
+            //if (iSerialize.GetType().Name == "BinarySerialize")
+            //{
+            //    iSerialize.Save(list);
+            //}
+            //else if (iSerialize.GetType().Name == "JSONSerialize")
+            //{
+            //    iSerialize.Save(list);
+            //}
+            //else if (iSerialize.GetType().Name == "XMLSerialize")
+            //{
+            //    iSerialize.Save(list);
+            //}
         }
 
         // Метод загрузки списка носителей информации из файла.
         public void Load(ISerialize iSerialize)
         {
+            list = iSerialize.Load();
             // Смотрим что пришло в качестве параметра (BinarySerialize или JSONSerialize или XMLSerialize).
-            if (iSerialize.GetType().Name == "BinarySerialize")
-            {
-                list = iSerialize.Load();
-            }
-            else if (iSerialize.GetType().Name == "JSONSerialize")
-            {
-                list = iSerialize.Load();
-            }
-            else if (iSerialize.GetType().Name == "XMLSerialize")
-            {
-                list = iSerialize.Load();
-            }
+            //if (iSerialize.GetType().Name == "BinarySerialize")
+            //{
+            //    list = iSerialize.Load();
+            //}
+            //else if (iSerialize.GetType().Name == "JSONSerialize")
+            //{
+            //    list = iSerialize.Load();
+            //}
+            //else if (iSerialize.GetType().Name == "XMLSerialize")
+            //{
+            //    list = iSerialize.Load();
+            //}
         }
 
         // Индексатор
-        public object this[int index]
-        {
-            get
-            {
-                return list[index];
-            }
-            set
-            {
-                list[index] = (Storage)value;
-            }
-        }
+        //public object this[int index]
+        //{
+        //    get
+        //    {
+        //        return list[index];
+        //    }
+        //    set
+        //    {
+        //        list[index] = (Storage)value;
+        //    }
+        //}
     }
 }
