@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ConsoleLog\ConsoleLog.csproj" />
-    <ProjectReference Include="..\DVD\DVD.csproj" />
     <ProjectReference Include="..\ILog\ILog.csproj" />
     <ProjectReference Include="..\ISerialize\ISerialize.csproj" />
     <ProjectReference Include="..\SomeInfoGenerator\SomeInfoGenerator.csproj" />

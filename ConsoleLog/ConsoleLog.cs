@@ -1,12 +1,12 @@
-﻿using System.Data.SqlTypes;
-using ILogNameSpace;
-using StorageNameSpace;
+﻿using ILogNameSpace;
 
-namespace ConsoleLogNameSpace
+namespace ConsoleLogNameSpace;
+
+public class ConsoleLog : ILog
 {
-    public class ConsoleLog : ILog
+    // Метод вывода данных, по выбранному пользователем назначению (консоль).
+    public void ReportOutput(string s)
     {
-        // Метод вывода данных, по выбранному пользователем назначению (консоль).
-        public void ReportOutput(String s) => Console.WriteLine(s);
+        Console.WriteLine(s);
     }
 }

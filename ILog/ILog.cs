@@ -1,8 +1,7 @@
-﻿namespace ILogNameSpace
+﻿namespace ILogNameSpace;
+
+public interface ILog
 {
-    public interface ILog
-    {
-        // Метод вывода данных, по выбранному пользователем назначению.
-        void ReportOutput(String s);
-    }
+    // Метод вывода данных, по выбранному пользователем назначению.
+    void ReportOutput(string s);
 }

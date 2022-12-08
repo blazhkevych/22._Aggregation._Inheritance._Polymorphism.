@@ -1,14 +1,13 @@
 ﻿using PriceListNameSpace;
 
-namespace InterfaceNameSpace
+namespace InterfaceNameSpace;
+
+internal class Program
 {
-    internal class Program
+    private static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            PriceList priceList = new PriceList();
-            Interface interface1 = new Interface(ref priceList);
-            interface1.MainMenu();
-        }
+        var priceList = new PriceList();
+        var interface1 = new Interface(ref priceList);
+        interface1.MainMenu();
     }
 }

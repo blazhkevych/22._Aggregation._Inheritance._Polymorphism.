@@ -1,13 +1,11 @@
 ﻿using ILogNameSpace;
 
-namespace FileLogNameSpace
+namespace FileLogNameSpace;
+
+public class FileLog : ILog
 {
-    public class FileLog : ILog
+    // Метод вывода данных, по выбранному пользователем назначению (файл).
+    public void ReportOutput(string s) // переопределить метод
     {
-        // Метод вывода данных, по выбранному пользователем назначению (файл).
-        public void ReportOutput(string s) // переопределить метод
-        {
-            
-        }
     }
 }
